@@ -13,7 +13,9 @@ const AuthLinks = ({user}) => {
         user
         ?  
         <div className='flex items-center gap-4'>
+
           <Link href={'/upload'}>UpLoad</Link>
+          <Link href={`/profile/${user?._id}`}>ProfilePage</Link>
           <button onClick={signOut}>LogOut</button>
         </div>
         : <button onClick={() => signIn()}>SignIn</button>
