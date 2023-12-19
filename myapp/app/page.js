@@ -1,9 +1,13 @@
+
+
+
+import Gallery from "@/components/Gallery/Gallery";
 import  {fetchPost} from "@/lib/data";
 
 const Home = async ({searchParams}) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const posts  = await fetchPost();
+  const posts  = await fetchPost(q, page);
   return (
     <main>
       homePage
@@ -16,6 +20,7 @@ const Home = async ({searchParams}) => {
       ) : (
         <p>No posts available</p>
       )}
+      <Gallery />
     </main>
   )
 }
