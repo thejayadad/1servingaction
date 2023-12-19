@@ -1,11 +1,11 @@
 
 import React from 'react';
 import GalleryCard from '../Cards/GalleryCard/GalleryCard';
-import { fetchPost } from "@/lib/data";
+import { fetchPost, getPosts } from "@/lib/data";
 import getServerUser from '@/lib/getServerUser';
 
 const Gallery = async () => {
-  const posts = await fetchPost();
+  const posts = await getPosts();
   const session = await getServerUser()
   return (
     <section className='px-4 py-12'>

@@ -1,21 +1,14 @@
 import getServerUser from '@/lib/getServerUser';
 import Link from 'next/link';
 import { Types } from 'mongoose';
-import { FiHeart, FiEdit, FiTrash, FiEye } from 'react-icons/fi';
+import { FiHeart, FiEdit, FiTrash, FiEye, } from 'react-icons/fi';
 
 
 const GalleryCard = ({ imageUrl, title, desc, index, isFavorite, isCurrentUser, creator: { _id: creatorId, avatar: creatorAvatar, email: creatorEmail }, postUserId }) => {
   const user = getServerUser();
   const userId = user ? new Types.ObjectId(user._id) : undefined;
-  const creatorID = creatorId ? new Types.ObjectId(creatorId) : undefined; // Assuming the creator object has an _id property
+  const creatorID = creatorId ? new Types.ObjectId(creatorId) : undefined; 
 
-  console.log("First Session " + user)
-  console.log(creatorEmail)
-  console.log(creatorId)
-  console.log("UserID: ", userId);
-  console.log("ImageUrl: ", imageUrl);
-  console.log("CreatorID: ", creatorID);
-  console.log("CreatorAvatar: ", creatorAvatar);
 
   const renderHeartIcon = () => {
     if (isFavorite) {
