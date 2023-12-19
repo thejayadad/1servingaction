@@ -9,13 +9,7 @@ export const getPosts = async () => {
         const userId = user ? new Types.ObjectId(user?._id) : undefined;
         console.log("UserId " + userId);
 
-        const basePipeline = [
-            // Your base pipeline stages go here
-            // For example, you might want to add a $match stage to filter by certain conditions
-            // {
-            //     $match: { field: value }
-            // },
-        ];
+        const basePipeline = [];
 
         // If userId is provided, add a $match stage to include posts with the matching userId
         if (userId) {
@@ -27,7 +21,7 @@ export const getPosts = async () => {
         // Add $lookup stage to populate the creator field with user details
         basePipeline.push({
             $lookup: {
-                from: "users", // Assuming your user collection is named "users"
+                from: "users",
                 localField: "creator",
                 foreignField: "_id",
                 as: "creatorDetails"
@@ -58,7 +52,7 @@ export const getPosts = async () => {
 
         // Log the total followers information
         console.log("Total Followers: ", basePipeline[basePipeline.length - 1].$addFields["creatorDetails.total_followers"]);
-
+        console.log("Favorites" + basePipeline[basePipeline.isFavorite])
         // Add additional stages to your pipeline as needed
         // For example, $sort, $limit, etc.
 
