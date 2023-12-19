@@ -48,6 +48,17 @@ export const getPosts = async () => {
             }
         });
 
+        // Add $addFields stage to add details and number of followers/following
+        basePipeline.push({
+            $addFields: {
+                "creatorDetails.total_followers": { $size: "$creatorDetails.followers" },
+                "creatorDetails.total_following": { $size: "$creatorDetails.following" }
+            }
+        });
+
+        // Log the total followers information
+        console.log("Total Followers: ", basePipeline[basePipeline.length - 1].$addFields["creatorDetails.total_followers"]);
+
         // Add additional stages to your pipeline as needed
         // For example, $sort, $limit, etc.
 
