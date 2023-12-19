@@ -7,17 +7,13 @@ const PostSchema = new mongoose.Schema({
       slug: {
         type: String,
       },
-      public_id: {
-        type: String
-      },
     desc: {
         type: String,
     },
     imageUrl: {
         type: String,
-        required: true,
     },
-    public: {
+    draft: {
         type: Boolean,
         default: false
     },

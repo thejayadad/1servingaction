@@ -1,14 +1,16 @@
 'use client'
-import React, {useState} from 'react'
-import UploadForm from '../Forms/UploadForm/UploadForm'
+import React, { useState } from 'react';
+import UploadForm from '../Forms/UploadForm/UploadForm';
+import UploadCard from '@/components/Cards/UploadCard/UploadCard';
 
 const Upload = () => {
-    const [files, setFiles] = useState([])
+
   return (
     <div>
-        <UploadForm setFiles={setFiles} />
-    </div>
-  )
-}
+      <UploadForm />
 
-export default Upload
+    </div>
+  );
+};
+
+export default Upload;
