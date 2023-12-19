@@ -6,3 +6,18 @@
 body{
   overflow-x: hidden;
 }
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0); /* Initially transparent */
+  pointer-events: none; /* Allows clicks to go through the overlay */
+  transition: background 0.3s; /* Add a transition effect */
+}
+
+.group:hover .dark-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay on hover */
+}
