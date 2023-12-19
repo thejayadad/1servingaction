@@ -1,22 +1,12 @@
+'use client'
 import React, { useRef } from 'react';
 import { addPost } from '@/lib/actions';
 import FormButton from '../../FormButton/FormButton';
 
 const UploadForm = React.memo(() => {
+    
   const formRef = useRef();
-  const imageRef = useRef();
 
-//   const handleImageChange = (event) => {
-//     const file = event.target;
-
-//     if (file) {
-//       const reader = new FileReader();
-//       reader.onload = (e) => {
-//         imageRef.current.src = e.target.result;
-//       };
-//       reader.readAsDataURL(file);
-//     }
-//   };
 
   return (
     <form
@@ -30,17 +20,14 @@ const UploadForm = React.memo(() => {
         placeholder='Image'
         required
       />
-      {/* <img
-        ref={imageRef}
-        alt='Image Preview'
-        style={{ maxWidth: '100%', maxHeight: '200px', marginTop: '10px' }}
-      /> */}
+
      <input
         type='text'
         name='title'
         placeholder='Title...'
         required
       />
+
 
       <input
         type='text'

@@ -17,9 +17,8 @@ const PostSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+    creator: {
+        type: String,
     },
     favorite_user: {
         type: [mongoose.Schema.Types.ObjectId],

@@ -1,14 +1,12 @@
 'use server'
 import Post from "@/models/Post";
 import db from "./db";
+import getServerUser from "./getServerUser";
 
-export const fetchPost = async(q,page)=> {
-    console.log(q)
-    const regex = new RegExp(q, "i");
-    const ITEM_PER_PAGE = 2;
+export const fetchPost = async()=> {
     try {
         db.connect()
-        const posts = await Post.find()
+        const posts = await Post.find({}).populate("creator")
        
         return posts 
     } catch (error) {

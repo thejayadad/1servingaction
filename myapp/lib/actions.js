@@ -18,7 +18,7 @@ export const addPost = async (formData) => {
             desc,
             draft,
             imageUrl,
-            user: userId?._id,
+            creator: userId && userId._id, 
             slug: slugify(title),
           
         })

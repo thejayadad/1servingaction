@@ -15,6 +15,7 @@ const AuthLinks = ({user}) => {
         <div className='flex items-center gap-4'>
 
           <Link href={'/upload'}>UpLoad</Link>
+          <span>{user.email}</span>
           <Link href={`/profile/${user?._id}`}>ProfilePage</Link>
           <button onClick={signOut}>LogOut</button>
         </div>
